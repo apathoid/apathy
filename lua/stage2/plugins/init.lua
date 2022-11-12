@@ -38,25 +38,6 @@ function M.setup()
             end
         }
 
-        -- use {
-        --     'kyazdani42/nvim-tree.lua',
-        --     requires = {
-        --         'kyazdani42/nvim-web-devicons',
-        --     },
-        --     config = function()
-        --         require('stage2.plugins.nvimtree')
-        --     end
-        -- }
-
-        -- use {
-        --     'akinsho/bufferline.nvim',
-        --     tag = 'v3.*',
-        --     requires = 'kyazdani42/nvim-web-devicons',
-        --     config = function()
-        --         require('stage2.plugins.bufferline')
-        --     end
-        -- }
-
         use {
             'noib3/nvim-cokeline',
             requires = {
@@ -110,12 +91,8 @@ function M.setup()
                 'hrsh7th/cmp-cmdline',
                 'hrsh7th/cmp-buffer',
                 'hrsh7th/cmp-path',
-                -- 'ray-x/cmp-treesitter',
                 'L3MON4D3/LuaSnip',
-                'saadparwaiz1/cmp_luasnip',
-                -- 'hrsh7th/cmp-vsnip',
-                -- 'hrsh7th/vim-vsnip',
-                -- 'rafamadriz/friendly-snippets'
+                'saadparwaiz1/cmp_luasnip'
             },
             config = function()
                 require('stage2.plugins.cmp')
