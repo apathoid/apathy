@@ -6,7 +6,6 @@ function M.setup()
         use 'wbthomason/packer.nvim'
         use 'nvim-lua/plenary.nvim'
         use 'famiu/bufdelete.nvim'
-        use 'windwp/nvim-ts-autotag'
         use 'kyazdani42/nvim-web-devicons'
 
         use {
@@ -111,6 +110,11 @@ function M.setup()
             config = function()
                 require('stage2.plugins.autopairs')
             end
+        }
+
+        use {
+            'windwp/nvim-ts-autotag',
+            after = 'nvim-treesitter'
         }
 
         use {
