@@ -15,7 +15,7 @@ function M.setup()
     }
 
     require('luasnip.loaders.from_lua').lazy_load()
-    require('luasnip.loaders.from_vscode').lazy_load()
+    require('luasnip.loaders.from_vscode').lazy_load({ paths = "~/.config/nvim/lua/snippets/vscode" })
     require('luasnip.loaders.from_snipmate').lazy_load()
 end
 

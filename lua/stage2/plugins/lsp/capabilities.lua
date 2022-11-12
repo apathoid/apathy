@@ -6,7 +6,7 @@ function M.get_capabilities()
 
     capabilities = vim.lsp.protocol.make_client_capabilities()
 
-    capabilities.textDocument.completion.completionItem.snippetSupport = true
+    capabilities.textDocument.completion.completionItem.snippetSupport = false
     capabilities.textDocument.completion.completionItem.resolveSupport = {
         properties = {
             'documentation',

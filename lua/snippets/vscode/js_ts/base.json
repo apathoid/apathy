@@ -1,0 +1,50 @@
+{
+    "log": {
+        "prefix": "log",
+        "body": ["console.log(${0:expr});"]
+    },
+    "deafult import": {
+        "prefix": "di",
+        "body": ["import ${1:name} from '${0:path}';"]
+    },
+    "named import": {
+        "prefix": "ni",
+        "body": ["import { ${1:name} } from '${0:path}';"]
+    },
+    "default export": {
+        "prefix": "de",
+        "body": ["export default ${0:name};"]
+    },
+    "named export": {
+        "prefix": "ne",
+        "body": ["export { ${0:name} };"]
+    },
+    "reexport": {
+        "prefix": "re",
+        "body": ["export { ${1:name} } from '${0:path}';"]
+    },
+    "default export function": {
+        "prefix": "dfe",
+        "body": ["export default function ${1:name}(${2:args}) {\n\t${0:body}\n}"]
+    },
+    "named export function": {
+        "prefix": "nfe",
+        "body": ["export function ${1:name}(${2:args}) {\n\t${0:body}\n}"]
+    },
+    "function": {
+        "prefix": "fn",
+        "body": ["function ${1:name}(${2:args}) {\n\t${0:body}\n}"]
+    },
+    "default export class": {
+        "prefix": "dcl",
+        "body": ["export default class ${1:name} {\n\t${0:body}\n}"]
+    },
+    "named export class": {
+        "prefix": "ncl",
+        "body": ["export class ${1:name} {\n\t${0:body}\n}"]
+    },
+    "class": {
+        "prefix": "cl",
+        "body": ["class ${1:name} {\n\t${0:body}\n}"]
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "function": {
+        "prefix": "fn",
+        "body": ["function ${1:name}()\n\t${0:body}\nend"]
+    },
+    "print": {
+        "prefix": "print",
+        "body": ["print(${0:expr})"]
+    }
+}

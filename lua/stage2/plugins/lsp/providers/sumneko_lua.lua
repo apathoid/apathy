@@ -9,7 +9,7 @@ local M = {
                 }
             },
             diagnostics = {
-                globals = { 'vim' },
+                globals = { 'vim' }
             }
         }
     }

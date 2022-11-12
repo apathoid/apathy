@@ -1,0 +1,39 @@
+{
+    "name": "vscode-snippets",
+    "contributes": {
+        "snippets": [
+            {
+                "language": [
+                    "lua"
+                ],
+                "path": "./lua.json"
+            },
+            {
+                "language": [
+                    "javascript"
+                ],
+                "path": "./js_ts/base.json"
+            },
+            {
+                "language": [
+                    "typescript"
+                ],
+                "path": "./js_ts/base.json"
+            },
+            {
+                "language": [
+                    "javacriptreact",
+                    "typescriptreact"
+                ],
+                "path": "./js_ts/base.json"
+            },
+            {
+                "language": [
+                    "javacriptreact",
+                    "typescriptreact"
+                ],
+                "path": "./js_ts/react_base.json"
+            }
+        ]
+    }
+}
