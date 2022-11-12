@@ -10,7 +10,7 @@ vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 neotree.setup({
     open_files_in_last_window = false,
     add_blank_line_at_top = true,
-    close_if_last_window = false,
+    close_if_last_window = apth.config.file_explorer.close_if_last,
     enable_diagnostics = false,
     source_selector = {
         winbar = true,
@@ -50,8 +50,8 @@ neotree.setup({
         }
     },
     window = {
-        position = 'left',
-        width = 46,
+        position = apth.config.file_explorer.position,
+        width = apth.config.file_explorer.width,
         mappings = {
             o = 'open',
             H = 'prev_source',
