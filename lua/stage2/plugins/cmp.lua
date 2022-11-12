@@ -5,6 +5,8 @@ if not ok then
 end
 
 
+local luasnip = require("luasnip")
+
 cmp.setup {
     confirmation = {
         default_behaviour = cmp.ConfirmBehavior.Insert
@@ -12,7 +14,7 @@ cmp.setup {
     preselect = 'enable',
     snippet = {
         expand = function(args)
-            require('luasnip').lsp_expand(args.body)
+            luasnip.lsp_expand(args.body)
         end
     },
     window = {
@@ -40,6 +42,15 @@ cmp.setup {
     mapping = {
         ['<Tab>'] = cmp.mapping.select_next_item(),
         ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+        ['<leader><Tab>'] = cmp.mapping(function(fallback)
+            if luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
+            else
+                fallback()
+            end
+        end, { "i" }),
+        ['<Down>'] = cmp.mapping.select_next_item(),
+        ['<Up>'] = cmp.mapping.select_prev_item(),
         ['<CR>'] = cmp.mapping.confirm({
             behavior = cmp.ConfirmBehavior.Insert,
             select = true
