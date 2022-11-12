@@ -1,5 +1,5 @@
 --[[
--- Stage3 is a set of parameters that allows post-plugins settings to be applied.
+-- Stage3 is a set of parameters that allow post-plugins settings to be applied.
 --]]
 
 

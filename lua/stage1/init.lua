@@ -1,5 +1,5 @@
 --[[
--- Stage1 is a set of parameters that affects on neovim's overall behavior.
+-- Stage1 is a set of parameters that affect on the neovim's overall behavior.
 --]]
 
 
