@@ -68,6 +68,14 @@ cokeline.setup({
 })
 
 
+-- This au event conflicts with neo-tree
+if apth.config.file_explorer.filetype == 'neo-tree' then
+    vim.cmd [[
+        autocmd! cokeline_focus BufDelete
+    ]]
+end
+
+
 local set_keymap = vim.keymap.set
 local opts = { silent = true }
 
