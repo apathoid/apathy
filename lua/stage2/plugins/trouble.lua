@@ -9,14 +9,13 @@ trouble.setup {
     height = apth.config.split_utility.bottom.height
 }
 
+local set_keymap = vim.keymap.set
+local opts = { noremap = true, silent = true }
 
 local function open_trouble()
     apth.utils.file_explorer.toggle_explorer(true, function()
-        trouble.toggle()
+        vim.cmd('TroubleToggle workspace_diagnostics')
     end)
 end
 
-
-local opts = { noremap = true, silent = true }
-
-vim.keymap.set('n', '<leader>v', open_trouble, opts)
+set_keymap('n', '<leader>v', open_trouble, opts)
