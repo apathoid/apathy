@@ -7,6 +7,7 @@ function M.setup()
         use 'nvim-lua/plenary.nvim'
         use 'famiu/bufdelete.nvim'
         use 'kyazdani42/nvim-web-devicons'
+        use 'lewis6991/impatient.nvim'
 
         use {
             'weilbith/nvim-code-action-menu',
@@ -52,6 +53,14 @@ function M.setup()
             requires = 'kyazdani42/nvim-web-devicons',
             config = function()
                 require('stage2.plugins.trouble')
+            end
+        }
+
+        use {
+            'folke/todo-comments.nvim',
+            requires = 'nvim-lua/plenary.nvim',
+            config = function()
+                require('stage2.plugins.todo-comments')
             end
         }
 
