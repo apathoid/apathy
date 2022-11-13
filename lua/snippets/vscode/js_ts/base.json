@@ -5,11 +5,11 @@
     },
     "deafult import": {
         "prefix": "di",
-        "body": ["import ${1:name} from '${0:path}';"]
+        "body": ["import ${0:name} from '${1:path}';"]
     },
     "named import": {
         "prefix": "ni",
-        "body": ["import { ${1:name} } from '${0:path}';"]
+        "body": ["import { ${0:name} } from '${1:path}';"]
     },
     "default export": {
         "prefix": "de",
@@ -21,7 +21,7 @@
     },
     "reexport": {
         "prefix": "re",
-        "body": ["export { ${1:name} } from '${0:path}';"]
+        "body": ["export { ${0:name} } from '${1:path}';"]
     },
     "default export function": {
         "prefix": "dfe",
