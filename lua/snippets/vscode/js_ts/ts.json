@@ -1,0 +1,30 @@
+{
+    "interface": {
+        "prefix": "in",
+        "body": ["interface ${1:name} {\n\t${0:properties}\n}"]
+    },
+    "named export interface": {
+        "prefix": "nin",
+        "body": ["export interface ${1:name} {\n\t${0:properties}\n}"]
+    },
+    "type": {
+        "prefix": "tp",
+        "body": ["type ${1:name} = {\n\t${0:properties}\n};"]
+    },
+    "named import type": {
+        "prefix": "imt",
+        "body": ["import type { ${0:name} } from '${1:path}';"]
+    },
+    "named export type": {
+        "prefix": "ntp",
+        "body": ["export type ${1:name} = {\n\t${0:properties}\n};"]
+    },
+    "export type": {
+        "prefix": "net",
+        "body": ["export type { ${0:name} }; "]
+    },
+    "reexport type": {
+        "prefix": "ret",
+        "body": ["export type { ${0:name} } from '${1:path}';"]
+    }
+}

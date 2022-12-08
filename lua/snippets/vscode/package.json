@@ -33,6 +33,13 @@
                     "typescriptreact"
                 ],
                 "path": "./js_ts/react_base.json"
+            },
+            {
+                "language": [
+                    "typescript",
+                    "typescriptreact"
+                ],
+                "path": "./js_ts/ts.json"
             }
         ]
     }
