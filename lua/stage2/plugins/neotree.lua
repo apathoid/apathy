@@ -77,7 +77,25 @@ neotree.setup({
                 ['f'] = 'filter_on_submit',
                 ['<c-x>'] = 'clear_filter',
                 ['[g'] = 'prev_git_modified',
-                [']g'] = 'next_git_modified'
+                [']g'] = 'next_git_modified',
+                ['c'] = 'copy_to_clipboard',
+                ['C'] = 'copy',
+                ['y'] = function(state)
+                    local node = state.tree:get_node()
+                    local content = node.path:gsub(state.path, ""):sub(2)
+
+                    vim.fn.setreg('"', content)
+                    vim.fn.setreg("1", content)
+                    vim.fn.setreg("+", content)
+                end,
+                ['Y'] = function(state)
+                    local node = state.tree:get_node()
+                    local content = node.path
+
+                    vim.fn.setreg('"', content)
+                    vim.fn.setreg("1", content)
+                    vim.fn.setreg("+", content)
+                end
             }
         }
     },
