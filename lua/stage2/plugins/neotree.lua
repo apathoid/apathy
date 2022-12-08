@@ -58,10 +58,15 @@ neotree.setup({
             ['L'] = 'next_source'
         }
     },
+    git_status_async = true,
     filesystem = {
         follow_current_file = true,
         hijack_netrw_behavior = 'open_default',
         use_libuv_file_watcher = true,
+        async_directory_scan = 'always',
+        filtered_items = {
+            hide_gitignored = true,
+        },
         window = {
             mappings = {
                 ['<bs>'] = 'navigate_up',
