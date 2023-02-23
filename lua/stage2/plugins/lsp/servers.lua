@@ -13,7 +13,7 @@ M.list = {
     'jsonls',
     'marksman',
     'pylsp',
-    'sumneko_lua',
+    'lua_ls',
     'taplo',
     'tsserver',
     'tailwindcss',
