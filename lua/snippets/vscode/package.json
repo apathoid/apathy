@@ -22,14 +22,14 @@
             },
             {
                 "language": [
-                    "javacriptreact",
+                    "javascriptreact",
                     "typescriptreact"
                 ],
                 "path": "./js_ts/base.json"
             },
             {
                 "language": [
-                    "javacriptreact",
+                    "javascriptreact",
                     "typescriptreact"
                 ],
                 "path": "./js_ts/react_base.json"
