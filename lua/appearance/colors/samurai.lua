@@ -223,6 +223,27 @@ local theme = lush(function()
         NvimTreeGitRenamed { fg = sight },
         NvimTreeGitDirty { fg = sand },
         NvimTreeGitStaged { fg = fractal },
+        NeoTreeNormal { fg = "#cbc7b9", bg = "#1f1f1f" },
+        NeoTreeTabActive { fg = "#1f1f1f", bg = "#cbc7b9" },
+        NeoTreeTabInactive { fg = "#cbc7b9", bg = "#545454" },
+        NeoTreeTabSeparatorActive { fg = "#aaa48d", bg = "#cbc7b9" },
+        NeoTreeTabSeparatorInactive { fg = "#cbc7b9", bg = "#545454" },
+        NeoTreeCursorLine { bg = "#303030" },
+        BufferlineCustomFill { fg = shadow, bg = shadow },
+        BufferlineCustomBackground { fg = shadow, bg = shadow },
+        BufferlineCustomBuffer { fg = shadow, bg = "#9d998d" },
+        BufferlineCustomBufferVisible { fg = shadow, bg = "#9d998d" },
+        BufferlineCustomBufferSelected { fg = night, bg = orb },
+        BufferlineCustomCloseButton { fg = night, bg = orb },
+        BufferlineCustomCloseButtonSelected { fg = night, bg = orb },
+        BufferlineCustomNumbers { fg = blood, bg = orb },
+        BufferlineCustomNumbersVisible { fg = "#B95F4B", bg = "#9d998d" },
+        BufferlineCustomNumbersSelected { fg = "#B95F4B", bg = orb },
+        BufferlineCustomSeparator { fg = "#B95F4B", bg = orb },
+        BufferlineCustomSeparatorVisible { fg = "#B95F4B", bg = orb },
+        BufferlineCustomSeparatorSelected { fg = "#B95F4B", bg = orb },
+        BufferlineCustomIndicator { fg = "#B95F4B", bg = orb },
+        BufferlineCustomOffsetSeparator { fg = "#B95F4B", bg = orb }
     }
 end)
 
