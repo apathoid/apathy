@@ -30,13 +30,13 @@ function M.setup(on_attach, on_exit)
 
     local capabilities = require('stage2.plugins.lsp.capabilities')
 
-    local opts = {
-        on_attach = on_attach,
-        on_exit = on_exit,
-        capabilities = capabilities.get_capabilities()
-    }
-
     for _, server_name in pairs(M.list) do
+        local opts = {
+            on_attach = on_attach,
+            on_exit = on_exit,
+            capabilities = capabilities.get_capabilities()
+        }
+
         local has_provider_opts, provider_opts = pcall(require, 'stage2.plugins.lsp.providers.' .. server_name)
 
         if has_provider_opts then
