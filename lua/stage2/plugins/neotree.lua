@@ -46,6 +46,19 @@ neotree.setup({
 
         },
         git_status = {
+            symbols = {
+                -- Change type
+                added     = '',
+                deleted   = '',
+                modified  = '',
+                renamed   = '',
+                -- Status type
+                untracked = 'U',
+                ignored   = '◌',
+                unstaged  = '',
+                staged    = 'S',
+                conflict  = '',
+            },
             highlight = 'NeoTreeDimText'
         }
     },
