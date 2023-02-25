@@ -46,12 +46,13 @@ function M.setup()
         }
 
         use {
-            'noib3/nvim-cokeline',
+            'akinsho/bufferline.nvim',
+            tag = 'v3.*',
             requires = {
-                'kyazdani42/nvim-web-devicons'
+                'nvim-tree/nvim-web-devicons'
             },
             config = function()
-                require('stage2.plugins.cokeline')
+                require('stage2.plugins.bufferline')
             end
         }
 
