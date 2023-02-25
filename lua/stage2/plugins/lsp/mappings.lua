@@ -7,6 +7,7 @@ M.mappings = {
         ['gD'] = { vim.lsp.buf.declaration, 'Goto declaration' },
         ['gI'] = { vim.lsp.buf.implementation, 'Goto Implementation' },
         ['gs'] = { vim.lsp.buf.signature_help, 'Show signature help' },
+        ['gR'] = { vim.lsp.buf.references, 'Show references' },
         ['gl'] = {
             function()
                 local config = {
