@@ -1,4 +1,4 @@
 _G.apth = {
     config = require('config'),
-    utils = require('utils')
+    utils = require('utils.init')
 }
