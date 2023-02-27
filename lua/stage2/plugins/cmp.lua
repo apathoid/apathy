@@ -5,7 +5,7 @@ if not ok then
 end
 
 
-local luasnip = require("luasnip")
+local luasnip = require('luasnip')
 
 cmp.setup {
     confirmation = {
@@ -48,7 +48,7 @@ cmp.setup {
             else
                 fallback()
             end
-        end, { "i" }),
+        end, { 'i' }),
         ['<Down>'] = cmp.mapping.select_next_item(),
         ['<Up>'] = cmp.mapping.select_prev_item(),
         ['<CR>'] = cmp.mapping.confirm({
