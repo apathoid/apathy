@@ -40,6 +40,8 @@ cmp.setup {
         end
     },
     mapping = {
+        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<Tab>'] = cmp.mapping.select_next_item(),
         ['<S-Tab>'] = cmp.mapping.select_prev_item(),
         ['<leader><Tab>'] = cmp.mapping(function(fallback)
@@ -59,6 +61,7 @@ cmp.setup {
     },
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
+        { name = 'nvim_lsp_signature_help' },
         { name = 'path' },
         { name = 'luasnip' },
         { name = 'nvim_lua' },
