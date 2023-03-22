@@ -6,7 +6,7 @@ local M = {
         colorscheme = 'arctic'
     },
     file_explorer = {
-        filetype = 'neo-tree',
+        filetype = 'NvimTree',
         width = 46,
         position = 'left',
         close_if_last = false

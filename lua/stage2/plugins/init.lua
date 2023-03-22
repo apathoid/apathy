@@ -33,15 +33,12 @@ function M.setup()
         }
 
         use {
-            'nvim-neo-tree/neo-tree.nvim',
-            branch = 'v2.x',
+            'nvim-tree/nvim-tree.lua',
             requires = {
-                'nvim-lua/plenary.nvim',
-                'kyazdani42/nvim-web-devicons',
-                'MunifTanjim/nui.nvim'
+                'nvim-tree/nvim-web-devicons'
             },
             config = function()
-                require('stage2.plugins.neotree')
+                require('stage2.plugins.nvimtree')
             end
         }
 
