@@ -22,7 +22,7 @@ nvim_tree.setup {
         args = {}
     },
     view = {
-        width = 50,
+        width = apth.config.file_explorer.width,
         side = 'left',
         mappings = {
             custom_only = false,
