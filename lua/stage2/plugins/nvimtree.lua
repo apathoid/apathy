@@ -83,7 +83,7 @@ nvim_tree.setup {
     },
     actions = {
         open_file = {
-            resize_window = false
+            resize_window = true
         }
     },
     diagnostics = {
@@ -103,13 +103,16 @@ nvim_tree.setup {
 
 
 local function open_nvim_tree(data)
+    -- bufer is a real file
+    local real_file = vim.fn.filereadable(data.file) == 1
+
     -- buffer is a [No Name]
     local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
 
     -- buffer is a directory
     local directory = vim.fn.isdirectory(data.file) == 1
 
-    if not no_name and not directory then
+    if not real_file and not no_name and not directory then
         return
     end
 
@@ -119,7 +122,7 @@ local function open_nvim_tree(data)
     end
 
     -- open the tree
-    require("nvim-tree.api").tree.open()
+    require("nvim-tree.api").tree.toggle({ focus = false })
 end
 
 vim.api.nvim_create_autocmd({ 'VimEnter' }, { callback = open_nvim_tree })
