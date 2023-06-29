@@ -19,9 +19,8 @@ local set_keymap = vim.keymap.set
 local opts = { silent = true, noremap = true }
 
 local function open_todos()
-    apth.utils.file_explorer.toggle_explorer(true, function()
-        vim.cmd('TroubleToggle todo')
-    end)
+    vim.cmd('TroubleToggle todo')
+    apth.utils.file_explorer.toggle_explorer(true)
 end
 
 set_keymap('n', '<leader>b', open_todos, opts)

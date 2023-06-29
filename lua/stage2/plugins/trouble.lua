@@ -13,9 +13,8 @@ local set_keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 local function open_trouble()
-    apth.utils.file_explorer.toggle_explorer(true, function()
-        vim.cmd('TroubleToggle workspace_diagnostics')
-    end)
+    vim.cmd('TroubleToggle workspace_diagnostics')
+    apth.utils.file_explorer.toggle_explorer(true)
 end
 
 set_keymap('n', '<leader>v', open_trouble, opts)
