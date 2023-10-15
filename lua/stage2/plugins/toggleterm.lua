@@ -12,6 +12,7 @@ toggleterm.setup {
     direction = 'horizontal',
     close_on_exit = true,
     start_in_insert = true,
+    persist_mode = false,
     auto_scroll = true,
     on_open = function(terminal)
         if not terminal.direction == 'horizontal' then
@@ -19,16 +20,8 @@ toggleterm.setup {
         end
 
         apth.utils.file_explorer.toggle_explorer(true)
-
-        vim.cmd [[ startinsert ]]
     end
 }
-
-
-vim.cmd [[
-    autocmd BufEnter *toggleterm* startinsert
-    autocmd BufLeave *toggleterm* stopinsert
-]]
 
 
 local set_keymap = vim.keymap.set
