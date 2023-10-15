@@ -4,7 +4,8 @@ if not ok then
     return
 end
 
-local theme = require('appearance.colorscheme.'..apth.config.editor.colorscheme)
+
+local theme = apth.utils.methods.get_theme()
 
 local lualine_theme = {
     normal = {
