@@ -24,10 +24,6 @@ nvim_tree.setup {
     view = {
         width = apth.config.file_explorer.width,
         side = 'left',
-        mappings = {
-            custom_only = false,
-            list = {}
-        },
         signcolumn = 'yes'
     },
     renderer = {
