@@ -5,7 +5,7 @@ if not ok then
 end
 
 
-local theme = require('appearance.colorscheme.'..apth.config.editor.colorscheme)
+local theme = apth.utils.methods.get_theme()
 
 bufferline.setup {
     options = {
