@@ -9,7 +9,7 @@ local luasnip = require('luasnip')
 
 cmp.setup {
     confirmation = {
-        default_behaviour = cmp.ConfirmBehavior.Insert
+        default_behaviour = cmp.ConfirmBehavior.Replace
     },
     preselect = 'enable',
     snippet = {
@@ -54,7 +54,7 @@ cmp.setup {
         ['<Down>'] = cmp.mapping.select_next_item(),
         ['<Up>'] = cmp.mapping.select_prev_item(),
         ['<CR>'] = cmp.mapping.confirm({
-            behavior = cmp.ConfirmBehavior.Insert,
+            behavior = cmp.ConfirmBehavior.Replace,
             select = true
         }),
         ['<C-Space>'] = cmp.mapping.complete()

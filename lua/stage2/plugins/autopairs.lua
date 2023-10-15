@@ -5,8 +5,6 @@ if not ok then
 end
 
 
-local set_keymap = vim.keymap.set
-
 autopairs.setup {
     check_ts = true,
     ts_config = {
@@ -26,8 +24,3 @@ autopairs.setup {
     enable_moveright = true,
     enable_afterquote = true
 }
-
-
-local opts = { expr = true, noremap = true }
-
-set_keymap('i', '<CR>', 'v:lua.MPairs.autopairs_cr()', opts)
