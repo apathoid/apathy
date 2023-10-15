@@ -52,7 +52,7 @@ bufferline.setup {
         show_buffer_close_icons = true,
         show_close_icon = true,
         show_tab_indicators = true,
-        persist_buffer_sort = true,
+        persist_buffer_sort = false,
         always_show_bufferline = true,
         separator_style = { ' ', ' ' },
         hover = {
