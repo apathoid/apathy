@@ -32,7 +32,7 @@ function M.setup_document_highlight(client, bufnr)
     vim.api.nvim_create_autocmd('CursorMoved', {
         group = group,
         buffer = bufnr,
-        callback = vim.lsp.buf.clear_references
+        callback = function() vim.lsp.buf.clear_references(bufnr) end
     })
 end
 
