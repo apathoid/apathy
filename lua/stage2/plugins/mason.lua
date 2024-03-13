@@ -10,12 +10,18 @@ end
 
 
 local servers = require('stage2.plugins.lsp.servers')
+local servers_to_ensure = {}
 
+for _, v in ipairs(servers.list) do
+    if not apth.utils.methods.has_value(servers.list_local, v) then
+        table.insert(servers_to_ensure, v)
+    end
+end
 
 function M.setup()
     mason.setup()
     mason_lsp.setup({
-        ensure_installed = servers.list
+        ensure_installed = servers_to_ensure
     })
 end
 

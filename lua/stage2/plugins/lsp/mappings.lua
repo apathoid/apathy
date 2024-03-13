@@ -20,11 +20,13 @@ M.mappings = {
             'Show line diagnostics'
         },
         ['<space>rn'] = { vim.lsp.buf.rename, 'Rename entity' },
-        ['<space>f'] = { vim.lsp.buf.format, 'Format code of entire buffer' }
+        ['<space>f'] = { vim.lsp.buf.format, 'Format code of entire buffer' },
+        ['<space>ca'] = { vim.lsp.buf.code_action, 'Display code actions' }
     },
     insert_mode = {},
     visual_mode = {
-        ['<space>f'] = { vim.lsp.buf.format, 'Format selected code' }
+        ['<space>f'] = { vim.lsp.buf.format, 'Format selected code' },
+        ['<space>ca'] = { vim.lsp.buf.code_action, 'Display code actions' }
     }
 }
 

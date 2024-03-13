@@ -23,12 +23,12 @@ M.config = {
             },
             {
                 name = 'DiagnosticSignHint',
-                text = '',
+                text = '󰌵',
                 numhl = 'DiagnosticSignHint'
             },
             {
                 name = 'DiagnosticSignInfo',
-                text = '',
+                text = '󰋼',
                 numhl = 'DiagnosticSignInfo'
             }
         }
@@ -54,6 +54,8 @@ M.config = {
 
 
 function M.setup()
+    M.define_signs()
+
     vim.diagnostic.config(M.config)
 
     vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
@@ -65,6 +67,12 @@ function M.setup()
         vim.lsp.handlers.signature_help,
         M.config.float
     )
+end
+
+function M.define_signs()
+    for _, sign in ipairs(M.config.signs.values) do
+        vim.fn.sign_define(sign.name, { texthl = sign.texthl, text = sign.text, numhl = sign.numhl })
+    end
 end
 
 

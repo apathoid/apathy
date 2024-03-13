@@ -1,6 +1,10 @@
 local M = {}
 
 
+local capabilities = require('stage2.plugins.lsp.capabilities')
+local events = require('stage2.plugins.lsp.events')
+
+
 M.list = {
     'bashls',
     'clangd',
@@ -15,25 +19,36 @@ M.list = {
     'pylsp',
     'lua_ls',
     'taplo',
-    'tsserver',
+    -- 'tsserver',
     'tailwindcss',
+    'vtsls',
     'yamlls'
 }
 
+M.list_local = {
+    'cssls',
+    'cssmodules_ls',
+    'eslint',
+    'html',
+    'jsonls',
+    'marksman',
+    -- 'tsserver',
+    'tailwindcss',
+    'vtsls'
+}
 
-function M.setup(on_attach, on_exit)
+
+function M.setup()
     local ok, lspconfig = pcall(require, 'lspconfig')
 
     if not ok then
         return
     end
 
-    local capabilities = require('stage2.plugins.lsp.capabilities')
-
     for _, server_name in pairs(M.list) do
         local opts = {
-            on_attach = on_attach,
-            on_exit = on_exit,
+            on_attach = function(_, bufnr) events.on_attach(bufnr) end,
+            on_exit = function(_, bufnr) events.on_exit(bufnr) end,
             capabilities = capabilities.get_capabilities()
         }
 
@@ -46,5 +61,6 @@ function M.setup(on_attach, on_exit)
         lspconfig[server_name].setup(opts)
     end
 end
+
 
 return M
