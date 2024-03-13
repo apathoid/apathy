@@ -10,18 +10,8 @@
             },
             {
                 "language": [
-                    "javascript"
-                ],
-                "path": "./js_ts/base.json"
-            },
-            {
-                "language": [
-                    "typescript"
-                ],
-                "path": "./js_ts/base.json"
-            },
-            {
-                "language": [
+                    "javascript",
+                    "typescript",
                     "javascriptreact",
                     "typescriptreact"
                 ],
@@ -32,7 +22,7 @@
                     "javascriptreact",
                     "typescriptreact"
                 ],
-                "path": "./js_ts/react_base.json"
+                "path": "./js_ts/react.json"
             },
             {
                 "language": [
@@ -40,6 +30,12 @@
                     "typescriptreact"
                 ],
                 "path": "./js_ts/ts.json"
+            },
+            {
+                "language": [
+                    "typescriptreact"
+                ],
+                "path": "./js_ts/react_ts.json"
             }
         ]
     }

@@ -1,0 +1,15 @@
+
+{
+    "export const React.memo": {
+        "prefix": "enrm",
+        "body": ["export const ${1:expr} = memo((${2:props}) => {\n\t${0:body}\n});"]
+    },
+    "export default React.memo": {
+        "prefix": "edrm",
+        "body": ["export default memo((${2:props}) => {\n\t${0:body}\n});"]
+    },
+    "scafold new React component": {
+        "prefix": "rfc",
+        "body": ["import React from 'react';\n\n\nexport const ${1:Component} = memo(() => {\n\t${0:body}\n});\n\n\nexport default ${2:Component};"]
+    }
+}
