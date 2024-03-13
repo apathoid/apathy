@@ -94,11 +94,18 @@ nvim_tree.setup {
     git = {
         enable = true,
         ignore = true
-    },
+    }
 }
 
 
 local function open_nvim_tree(data)
+    local IGNORED_FT = {
+        'gitcommit'
+    }
+
+    -- ft
+    local filetype = vim.bo[data.buf].ft
+
     -- bufer is a real file
     local real_file = vim.fn.filereadable(data.file) == 1
 
@@ -106,22 +113,25 @@ local function open_nvim_tree(data)
     local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
 
     -- buffer is a directory
-    local directory = vim.fn.isdirectory(data.file) == 1
+    local is_directory = vim.fn.isdirectory(data.file) == 1
 
-    if not real_file and not no_name and not directory then
+    if vim.tbl_contains(IGNORED_FT, filetype) or not real_file and not no_name and not is_directory then
         return
     end
 
-    -- change to the directory
-    if directory then
-        vim.cmd.cd(data.file)
-    end
-
     -- open the tree
-    require("nvim-tree.api").tree.toggle({ focus = false })
+    require('nvim-tree.api').tree.toggle({ focus = false })
 end
 
+
 vim.api.nvim_create_autocmd({ 'VimEnter' }, { callback = open_nvim_tree })
+
+vim.api.nvim_create_autocmd({ 'BufEnter' }, {
+    pattern = 'NvimTree*',
+    callback = function()
+        apth.utils.file_explorer.open_explorer({ focus = false })
+    end
+})
 
 
 local set_keymap = vim.keymap.set
