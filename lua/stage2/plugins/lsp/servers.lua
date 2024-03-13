@@ -21,7 +21,7 @@ M.list = {
     'taplo',
     -- 'tsserver',
     'tailwindcss',
-    'vtsls',
+    -- 'vtsls',
     'yamlls'
 }
 
@@ -34,7 +34,7 @@ M.list_local = {
     'marksman',
     -- 'tsserver',
     'tailwindcss',
-    'vtsls'
+    -- 'vtsls'
 }
 
 

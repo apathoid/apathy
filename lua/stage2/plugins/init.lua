@@ -90,6 +90,14 @@ function M.setup()
         }
 
         use {
+            'pmizio/typescript-tools.nvim',
+            requires = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
+            config = function()
+                require('stage2.plugins.typescript-tools')
+            end
+        }
+
+        use {
             'L3MON4D3/LuaSnip',
             config = function()
                 require('stage2.plugins.luasnip').setup()

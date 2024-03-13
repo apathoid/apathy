@@ -34,9 +34,6 @@ function M.setup()
 
     set_keymap('v', '<','<gv', opts)
     set_keymap('v', '>','>gv', opts)
-
-    -- Open LSP code actions
-    set_keymap('n', '<space>ca', ':CodeActionMenu<CR>', opts)
 end
 
 
