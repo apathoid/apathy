@@ -14,7 +14,7 @@ local opts = { noremap = true, silent = true }
 
 local function open_trouble()
     vim.cmd('TroubleToggle workspace_diagnostics')
-    apth.utils.file_explorer.toggle_explorer(true)
+    apth.utils.file_explorer.toggle_explorer({ reopen = true, focus = false })
 end
 
 set_keymap('n', '<leader>v', open_trouble, opts)

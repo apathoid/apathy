@@ -19,7 +19,7 @@ toggleterm.setup {
             return
         end
 
-        apth.utils.file_explorer.toggle_explorer(true)
+        apth.utils.file_explorer.toggle_explorer({ reopen = true, focus = false })
     end
 }
 
