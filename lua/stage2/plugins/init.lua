@@ -165,12 +165,12 @@ function M.setup()
         }
 
         use {
-            'lewis6991/gitsigns.nvim',
+            'tanvirtin/vgit.nvim',
             requires = {
                 'nvim-lua/plenary.nvim'
             },
             config = function()
-                require('stage2.plugins.gitsigns')
+                require('stage2.plugins.vgit')
             end
         }
 
