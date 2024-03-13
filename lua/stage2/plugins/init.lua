@@ -114,9 +114,16 @@ function M.setup()
         }
 
         use {
-            'preservim/nerdcommenter',
+            'numToStr/Comment.nvim',
             config = function()
-                require('stage2.plugins.nerdcommenter')
+                require('stage2.plugins.comment')
+            end
+        }
+
+        use {
+            'JoosepAlviste/nvim-ts-context-commentstring',
+            config = function()
+                require('stage2.plugins.ts-context-comment')
             end
         }
 
