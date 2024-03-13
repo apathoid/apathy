@@ -9,11 +9,6 @@ function M.setup()
         use 'kyazdani42/nvim-web-devicons'
         use 'lewis6991/impatient.nvim'
         use 'rktjmp/lush.nvim'
-        use {
-            'rockyzhang24/arctic.nvim',
-            requires = 'rktjmp/lush.nvim'
-        }
-
         use 'stevearc/dressing.nvim'
 
         use {
