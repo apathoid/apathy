@@ -26,12 +26,17 @@ function M.setup()
     set_keymap('n', '<C-Left>', ':vertical resize +2<CR>', opts)
     set_keymap('n', '<C-Right>', ':vertical resize -2<CR>', opts)
 
-    -- Move blocks of code
+    -- Move code blocks
+
+    --- Move vertically
     set_keymap('n', '<C-j>', ':m .+1<CR>==', opts)
     set_keymap('n', '<C-k>', ':m .-2<CR>==', opts)
     set_keymap('x', '<C-j>', ":m '>+1<CR>gv-gv", opts)
     set_keymap('x', '<C-k>', ":m '<-2<CR>gv-gv", opts)
 
+    --- Move horizontally
+    set_keymap('n', '<','<<', opts)
+    set_keymap('n', '>','>>', opts)
     set_keymap('v', '<','<gv', opts)
     set_keymap('v', '>','>gv', opts)
 end
