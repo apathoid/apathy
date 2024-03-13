@@ -24,6 +24,7 @@ treesitter.setup {
         'toml',
         'tsx',
         'typescript',
+        'vimdoc',
         'vue',
         'yaml'
     },
@@ -36,11 +37,6 @@ treesitter.setup {
     },
     autotag = {
         enable = true
-    },
-    rainbow = {
-        enable = true,
-        extended_mode = true,
-        max_file_lines = 1000
     },
     context_commentstring = {
         enable = true
