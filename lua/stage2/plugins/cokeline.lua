@@ -5,6 +5,8 @@ if not ok then
 end
 
 
+local theme = apth.utils.methods.get_theme()
+
 cokeline.setup({
     buffers = {
         focus_on_delete = 'prev',
@@ -12,10 +14,10 @@ cokeline.setup({
     },
     default_hl = {
         fg = function(buffer)
-            return buffer.is_focused and '#0f0f0f' or '#202020'
+            return buffer.is_focused and theme.TabLineBufferSelected.fg or theme.TabLineBackground.fg
         end,
         bg = function(buffer)
-            return buffer.is_focused and '#ccc8ba' or '#9d998d'
+            return buffer.is_focused and theme.TabLineBufferSelected.bg or theme.TabLineBackground.bg
         end
     },
     sidebar = {
@@ -23,11 +25,15 @@ cokeline.setup({
         components = {
             {
                 text = '',
-                bg = '#202020',
-                fg = '#ccc8ba',
+                bg = theme.TabLineFill.bg,
+                fg = theme.TabLineFill.fg,
                 style = 'bold'
             }
         }
+    },
+    history = {
+        enabled = true,
+        size = 999
     },
     rendering = {
         max_buffer_width = 80
@@ -35,19 +41,19 @@ cokeline.setup({
     components = {
         {
             text = function(buffer) return (buffer.index == 1) and '       ' or '  ' end,
-            bg = '#202020'
+            bg = theme.TabLineFill.bg
         },
         {
             text = function(buffer) return ' ' .. buffer.index end,
-            fg = '#893f3e'
+            fg = function(buffer) return buffer.is_focused and theme.TabLineNumberSelected.fg or theme.TabLineNumber.fg end
         },
         {
             text = '|',
-            fg = '#202020'
+            fg = function(buffer) return buffer.is_focused and theme.TabLineSeparatorSelected.fg or theme.TabLineSeparator.fg end
         },
         {
             text = function(buffer) return buffer.devicon.icon .. ' ' end,
-            fg = '#0f0f0f'
+            fg = function(buffer) return buffer.is_focused and theme.TabLineIconSelected.fg or theme.TabLineIcon.fg end
         },
         {
             text = function(buffer) return buffer.filename end,
@@ -55,13 +61,13 @@ cokeline.setup({
         },
         {
             text = function(buffer) return (buffer.is_modified) and '*' or '' end,
-            fg = '#ba604c',
+            fg = function(buffer) return buffer.is_focused and theme.TabLineModifiedSelected.fg or theme.TabLineModified.fg end,
             style = 'bold'
         },
         {
             delete_buffer_on_left_click = true,
-            text = '  ',
-            fg = '#0f0f0f',
+            text = ' 󰅖 ',
+            fg = function(buffer) return buffer.is_hovered and theme.TabLineCloseButtonHovered.fg or theme.TabLineCloseButton.fg end,
             style = 'bold'
         }
     }
@@ -69,11 +75,11 @@ cokeline.setup({
 
 
 -- This au event conflicts with neo-tree
-if apth.config.file_explorer.filetype == 'neo-tree' then
-    vim.cmd [[
-        autocmd! cokeline_focus BufDelete
-    ]]
-end
+-- if apth.config.file_explorer.filetype == 'neo-tree' then
+--     vim.cmd [[
+--         autocmd! cokeline_focus BufDelete
+--     ]]
+-- end
 
 
 local set_keymap = vim.keymap.set

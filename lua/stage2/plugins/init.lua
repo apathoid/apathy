@@ -38,13 +38,14 @@ function M.setup()
         }
 
         use {
-            'akinsho/bufferline.nvim',
-            branch = 'main',
+            "willothy/nvim-cokeline",
             requires = {
-                'nvim-tree/nvim-web-devicons'
+                "nvim-lua/plenary.nvim",
+                "kyazdani42/nvim-web-devicons",
+                "stevearc/resession.nvim"
             },
             config = function()
-                require('stage2.plugins.bufferline')
+                require('stage2.plugins.cokeline')
             end
         }
 
