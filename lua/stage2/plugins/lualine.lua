@@ -25,7 +25,9 @@ local lualine_theme = {
 
 lualine.setup {
     options = {
+        globalstatus = true,
         theme = lualine_theme,
-        disabled_filetypes = { apth.config.file_explorer.filetype }
-    }
+        disabled_filetypes = {}
+    },
+    extensions = { 'mason', 'toggleterm', 'trouble' }
 }
