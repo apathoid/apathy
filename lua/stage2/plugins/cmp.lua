@@ -11,7 +11,7 @@ cmp.setup {
     confirmation = {
         default_behaviour = cmp.ConfirmBehavior.Replace
     },
-    preselect = 'enable',
+    preselect = cmp.PreselectMode.None,
     snippet = {
         expand = function(args)
             luasnip.lsp_expand(args.body)
@@ -55,7 +55,7 @@ cmp.setup {
         ['<Up>'] = cmp.mapping.select_prev_item(),
         ['<CR>'] = cmp.mapping.confirm({
             behavior = cmp.ConfirmBehavior.Replace,
-            select = true
+            select = false
         }),
         ['<C-Space>'] = cmp.mapping.complete()
     },
@@ -64,6 +64,7 @@ cmp.setup {
         { name = 'path' },
         { name = 'luasnip' },
         { name = 'nvim_lua' },
+        { name = 'nvim_lsp_signature_help' }
     }, {
             {
                 name = 'buffer',
