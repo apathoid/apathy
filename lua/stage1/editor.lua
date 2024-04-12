@@ -21,7 +21,8 @@ function M.setup()
         syntax = 'on',
         termguicolors = true,
         timeoutlen = 300,
-        updatetime = 100,
+        updatetime = 300,
+        incsearch = false,
         wildignore = '*node_modules/**',
         mousemoveevent = true
     }
