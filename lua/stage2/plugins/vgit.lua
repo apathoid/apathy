@@ -18,6 +18,7 @@ vgit.setup({
         }
     },
     keymaps = {
+        ['n <C-Tab>'] = function() vim.cmd('winc p') end,
         ['n <C-A-k>'] = function() require('vgit').hunk_up() end,
         ['n <C-A-j>'] = function() require('vgit').hunk_down() end,
         ['n <leader>hr'] = function() require('vgit').buffer_hunk_reset() end,
