@@ -154,13 +154,6 @@ function M.setup()
         }
 
         use {
-            'nvim-treesitter/nvim-treesitter-refactor',
-            config = function()
-                require('stage2.plugins.treesitter-refactor')
-            end
-        }
-
-        use {
             'nvim-treesitter/playground',
             after = 'nvim-treesitter',
             run = ':TSInstall query',
@@ -207,7 +200,6 @@ function M.setup()
                 require('stage2.plugins.toggleterm')
             end
         }
-
     end)
 end
 
