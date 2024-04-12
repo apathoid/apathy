@@ -18,15 +18,12 @@ local theme = lush.extends({base, vscode_base}).with(function()
 
         TabLineBufferSelected { fg = '#ffffff', bg = Accent.bg },
         TabLineNumber { fg = '#ffffff' },
-        TabLineNumberSelected {},
         TabLineSeparator { fg = '#cccccc' },
-        TabLineSeparatorSelected {},
         TabLineIcon { fg = '#ffffff' },
-        TabLineIconSelected {},
         TabLineModified { fg = '#ffffff' },
-        TabLineModifiedSelected {},
         TabLineCloseButton { fg = '#ffffff' },
         TabLineCloseButtonHovered { fg = '#f14c4c' },
+        TabLineCloseButtonSelectedHovered { fg = '#f14c4c' },
 
         StatusLine { fg = '#ffffff', bg = '#252526' },
         StatusLineFill { fg = '#ffffff', bg = '#454545' },

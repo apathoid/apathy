@@ -1,6 +1,7 @@
+---@diagnostic disable: undefined-global
+
 local lush = require("lush")
 
----@diagnostic disable
 local theme = lush(function(injected_functions)
     local sym = injected_functions.sym
 

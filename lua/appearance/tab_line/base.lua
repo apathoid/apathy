@@ -10,6 +10,7 @@ end
 local fg = '#d4d4d4'
 local fg_vis = '#d4d4d4'
 local fg_sel = '#d4d4d4'
+local fg_hov = '#cccccc'
 
 local bg = '#2d2d2d'
 local bg_vis = '#2a2a2a'
@@ -28,6 +29,8 @@ local theme = lush(function()
         TabLineCloseButton { fg = fg, bg = bg },
         TabLineCloseButtonVisible { fg = fg_vis, bg = bg_vis },
         TabLineCloseButtonSelected { fg = fg_sel, bg = bg_sel },
+        TabLineCloseButtonHovered { fg = fg_hov },
+        TabLineCloseButtonSelectedHovered { fg = fg_hov },
         TabLineSeparator { fg = fg, bg = bg },
         TabLineSeparatorVisible { fg = fg_vis, bg = bg_vis },
         TabLineSeparatorSelected { fg = fg_sel, bg = bg_sel },
@@ -40,8 +43,10 @@ local theme = lush(function()
         TabLineDuplicate { fg = '#888888', bg = bg },
         TabLineDuplicateVisible { fg = '#888888', bg = bg_vis },
         TabLineDuplicateSelected { fg = '#888888', bg = bg_sel },
-        TabLineIcon { fg = fg, bg = bg }
+        TabLineIcon { fg = fg, bg = bg },
+        TabLineIconSelected { fg = fg, bg = bg },
     }
 end)
+
 
 return theme

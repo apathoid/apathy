@@ -1,3 +1,6 @@
+---@diagnostic disable: undefined-global
+
+
 -- Template: https://github.com/rktjmp/lush-template/blob/main/lua/lush_theme/lush_template.lua
 -- VSCode Theme Color Reference: https://code.visualstudio.com/api/references/theme-color#command-center-colors
 
@@ -38,7 +41,6 @@ local indent_guide_fg = '#404040'
 local indent_guide_context_fg = '#707070'
 local label_fg = '#c8c8c8'
 
----@diagnostic disable
 local theme = lush(function(injected_functions)
   local sym = injected_functions.sym
   return {
