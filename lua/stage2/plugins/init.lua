@@ -12,6 +12,13 @@ function M.setup()
         use 'stevearc/dressing.nvim'
 
         use {
+            'folke/which-key.nvim',
+            config = function()
+                require('stage2.plugins.which-key')
+            end
+        }
+
+        use {
             'weilbith/nvim-code-action-menu',
             cmd = 'CodeActionMenu'
         }
