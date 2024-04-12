@@ -64,6 +64,9 @@ local M = {
                 includePackageJsonAutoImports = 'off'
             }
         }
+    },
+    plugins = {
+        '@styled/typescript-styled-plugin'
     }
 }
 

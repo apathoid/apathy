@@ -16,6 +16,7 @@ ts_tools.setup({
     capabilities = capabilities.get_capabilities(),
     settings = {
         tsserver_file_preferences = ts_provider.settings.typescript.preferences,
-        tsserver_format_options = ts_provider.settings.typescript.format
+        tsserver_format_options = ts_provider.settings.typescript.format,
+        tsserver_plugins = ts_provider.plugins
     }
 })
