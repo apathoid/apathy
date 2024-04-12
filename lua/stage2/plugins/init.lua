@@ -186,6 +186,7 @@ function M.setup()
 
         use {
             'tanvirtin/vgit.nvim',
+            branch = 'main',
             requires = {
                 'nvim-lua/plenary.nvim'
             },
