@@ -67,7 +67,19 @@ cokeline.setup({
         {
             delete_buffer_on_left_click = true,
             text = ' 󰅖 ',
-            fg = function(buffer) return buffer.is_hovered and theme.TabLineCloseButtonHovered.fg or theme.TabLineCloseButton.fg end,
+            fg = function(buffer)
+                if buffer.is_focused then
+                    if buffer.is_hovered then
+                        return theme.TabLineCloseButtonSelectedHovered.fg
+                    end
+                    return theme.TabLineCloseButtonSelected.fg
+                else
+                    if buffer.is_hovered then
+                        return theme.TabLineCloseButtonHovered.fg
+                    end
+                    return theme.TabLineCloseButton.fg
+                end
+            end,
             style = 'bold'
         }
     }
