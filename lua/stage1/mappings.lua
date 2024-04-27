@@ -14,6 +14,15 @@ function M.setup()
     set_keymap('n', '<leader>p', '"+p', opts)
     set_keymap('v', '<leader>p', '"+p', opts)
 
+    -- Close tab
+    set_keymap('n', '<C-A-w>', ':tabclose<CR>', opts)
+    -- Go to the left tab
+    set_keymap('n', '<C-A-,>', ':tabprevious<CR>', opts)
+    -- Go to the right tab
+    set_keymap('n', '<C-A-.>', ':tabnext<CR>', opts)
+    -- Select previous window
+    set_keymap('n', '<C-Tab>', ':winc p<CR>', opts)
+
     -- Move between windows
     set_keymap('n', '<A-h>', '<c-w>h', opts)
     set_keymap('n', '<A-j>', '<c-w>j', opts)
