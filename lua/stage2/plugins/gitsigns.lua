@@ -1,76 +1,57 @@
-local ok, gitsigns = pcall(require, 'gitsigns')
+return {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+        local gitsigns = require('gitsigns')
 
-if not ok then
-    return
-end
+        gitsigns.setup({
+            _signs_staged = {
+                add = { text = 's' },
+                change = { text = 's' },
+                delete = { text = '_', show_count = true },
+                topdelete = { text = '‾', show_count = true },
+                changedelete = { text = 's', show_count = true },
+            },
+            on_attach = function(bufnr)
+                local function map(mode, l, r, opts)
+                    opts = opts or {}
+                    opts.buffer = bufnr
+                    vim.keymap.set(mode, l, r, opts)
+                end
 
+                -- Navigation
+                map('n', '<C-A-j>', function()
+                    if vim.wo.diff then
+                        vim.cmd.normal({ ']c', bang = true })
+                    else
+                        gitsigns.nav_hunk('next')
+                    end
+                end)
 
-gitsigns.setup {
-    signs = {
-        add = {
-            hl = 'GitSignsAdd',
-            text = '▎',
-            numhl = 'GitSignsAddNr',
-            linehl = 'GitSignsAddLn'
-        },
-        change = {
-            hl = 'GitSignsChange',
-            text = '▎',
-            numhl = 'GitSignsChangeNr',
-            linehl = 'GitSignsChangeLn'
-        },
-        delete = {
-            hl = 'GitSignsDelete',
-            text = '󰐊',
-            numhl = 'GitSignsDeleteNr',
-            linehl = 'GitSignsDeleteLn'
-        },
-        topdelete = {
-            hl = 'GitSignsDelete',
-            text = '󰐊',
-            numhl = 'GitSignsDeleteNr',
-            linehl = 'GitSignsDeleteLn'
-        },
-        changedelete = {
-            hl = 'GitSignsChange',
-            text = '▎',
-            numhl = 'GitSignsChangeNr',
-            linehl = 'GitSignsChangeLn'
-        }
-    },
-    numhl = false,
-    linehl = false,
-    watch_gitdir = { interval = 1000 },
-    sign_priority = 6,
-    update_debounce = 200,
-    status_formatter = nil,
-    on_attach = function(bufnr)
-        local gs = package.loaded.gitsigns
+                map('n', '<C-A-k>', function()
+                    if vim.wo.diff then
+                        vim.cmd.normal({ '[c', bang = true })
+                    else
+                        gitsigns.nav_hunk('prev')
+                    end
+                end)
 
-        local function map(mode, l, r, opts)
-            opts = opts or {}
-            opts.buffer = bufnr
-            vim.keymap.set(mode, l, r, opts)
-        end
+                -- Actions
+                map('n', '<leader>hs', gitsigns.stage_hunk)
+                map('n', '<leader>hr', gitsigns.reset_hunk)
+                map('v', '<leader>hs', function() gitsigns.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
+                map('v', '<leader>hr', function() gitsigns.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
+                map('n', '<leader>hw', gitsigns.stage_buffer)
+                map('n', '<leader>hu', gitsigns.undo_stage_hunk)
+                map('n', '<leader>hz', gitsigns.reset_buffer)
+                map('n', '<leader>hp', gitsigns.preview_hunk)
+                map('n', '<leader>hb', function() gitsigns.blame_line { full = true } end)
+                map('n', '<leader>hl', gitsigns.toggle_current_line_blame)
+                map('n', '<leader>hd', gitsigns.diffthis)
+                map('n', '<leader>ht', gitsigns.toggle_deleted)
 
-        -- Navigation
-        map('n', ']c', "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", { expr = true })
-        map('n', '[c', "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", { expr = true })
-
-        -- Actions
-        map({ 'n', 'v' }, '<leader>hs', gs.stage_hunk)
-        map({ 'n', 'v' }, '<leader>hr', gs.reset_hunk)
-        map('n', '<leader>hS', gs.stage_buffer)
-        map('n', '<leader>hu', gs.undo_stage_hunk)
-        map('n', '<leader>hR', gs.reset_buffer)
-        map('n', '<leader>hp', gs.preview_hunk)
-        map('n', '<leader>hb', function() gs.blame_line{ full = true } end)
-        -- map('n', '<leader>tb', gs.toggle_current_line_blame)
-        map('n', '<leader>hd', gs.diffthis)
-        map('n', '<leader>hD', function() gs.diffthis('~') end)
-        -- map('n', '<leader>td', gs.toggle_deleted)
-
-        -- Text object
-        map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+                -- Text object
+                map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+            end
+        })
     end
 }

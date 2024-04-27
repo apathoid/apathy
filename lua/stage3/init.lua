@@ -1,5 +1,6 @@
 --[[
--- Stage3 is a set of parameters that allow post-plugins settings to be applied.
+-- Stage3 is the post-plugin-loading step.
+-- Any configuration that must not be overrided by any plugin should go here.
 --]]
 
 

@@ -1,5 +1,3 @@
-pcall(require, 'impatient')
-
 require('globals')
 
 local stage1 = require('stage1')

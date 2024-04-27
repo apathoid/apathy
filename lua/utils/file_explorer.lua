@@ -2,6 +2,7 @@ M = {}
 
 
 ---@class open_explorer_args
+---@field path? string open for path
 ---@field focus? boolean focus explorer after opening
 
 ---Open file explorer
@@ -21,7 +22,7 @@ function M.open_explorer(args)
         local view = require('nvim-tree.view')
 
         if not view.is_visible() then
-            api.tree.toggle({ focus = _args.focus or false })
+            api.tree.toggle({ path = _args.path, focus = _args.focus or false })
         end
     end
 end

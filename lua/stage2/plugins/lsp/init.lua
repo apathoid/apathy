@@ -1,23 +1,20 @@
-local M = {}
+return {
+    {
+        'neovim/nvim-lspconfig',
+        dependencies = {
+            'williamboman/mason.nvim',
+            'b0o/schemastore.nvim',
+            'weilbith/nvim-code-action-menu'
+        },
+        lazy = true,
+        event = 'BufReadPre',
+        config = function()
+            local servers = require('stage2.plugins.lsp.servers')
+            local handlers = require('stage2.plugins.lsp.handlers')
 
-
-local servers = require('stage2.plugins.lsp.servers')
-local handlers = require('stage2.plugins.lsp.handlers')
-
-local mason = require('stage2.plugins.mason')
-
-
-function M.setup()
-    local ok, _ = pcall(require, 'lspconfig')
-
-    if not ok then
-        return
-    end
-
-    handlers.setup()
-    mason.setup()
-    servers.setup()
-end
-
-
-return M
+            handlers.setup()
+            servers.setup()
+        end
+    },
+    require('stage2.plugins.lsp.mason')
+}

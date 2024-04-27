@@ -1,15 +1,15 @@
 --[[
--- Stage2 is a set of parameters that handles plugins loading and their configuration.
+-- Stage2 is about a package manager, plugins and their configuration.
 --]]
 
 
-local plugins = require('stage2.plugins')
+local pm = require('stage2.pm')
 
 local M = {}
 
 function M.init()
-    -- Load and configure plugins
-    plugins.setup()
+    -- Bootstrap package manager
+    pm.setup()
 end
 
 

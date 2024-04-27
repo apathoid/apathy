@@ -8,6 +8,16 @@ local M = {
     settings = {
         typescript = ts_provider.settings.typescript,
         vtsls = {
+            tsserver = {
+                globalPlugins = {
+                    {
+                        name = "@styled/typescript-styled-plugin",
+                        location = "/home/apathoid/.bun/install/global/node_modules",
+                        enableForWorkspaceTypeScriptVersions = true
+                    }
+                }
+            },
+            autoUseWorkspaceTsdk = true,
             typescript = {
                 format = {
                     trimTrailingWhitespace = true
@@ -19,7 +29,8 @@ local M = {
                 }
             }
         }
-    }
+    },
+    plugins = ts_provider.plugins
 }
 
 
