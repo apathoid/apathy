@@ -3,7 +3,7 @@ local M = {
         get_packpath = function()
             return '~/.local/share/nvim/site'
         end,
-        colorscheme = 'vscode'
+        colorscheme = 'vscode-modern'
     },
     file_explorer = {
         filetype = 'NvimTree',
