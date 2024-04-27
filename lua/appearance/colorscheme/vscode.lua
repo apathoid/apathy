@@ -24,6 +24,8 @@ local theme = lush.extends({base, vscode_base}).with(function()
         TabLineCloseButton { fg = '#ffffff' },
         TabLineCloseButtonHovered { fg = '#f14c4c' },
         TabLineCloseButtonSelectedHovered { fg = '#f14c4c' },
+        TabLineTab { fg = '#cccccc', bg = '#1b1b1c' },
+        TabLineTabSelected { fg = '#ffffff', bg = base.TabLineTabSelected.bg },
 
         StatusLine { fg = '#ffffff', bg = '#252526' },
         StatusLineFill { fg = '#ffffff', bg = '#454545' },

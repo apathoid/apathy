@@ -45,6 +45,8 @@ local theme = lush(function()
         TabLineDuplicateSelected { fg = '#888888', bg = bg_sel },
         TabLineIcon { fg = fg, bg = bg },
         TabLineIconSelected { fg = fg, bg = bg },
+        TabLineTab { fg = fg, bg = bg },
+        TabLineTabSelected { fg = fg_sel, bg = bg }
     }
 end)
 
