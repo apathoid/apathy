@@ -33,4 +33,22 @@ function M.get_theme()
 end
 
 
+---@class basedir_args
+---@field path string
+
+---Get the directory from the path.
+---If the path is pointing to a file, strip filename and get the containing dir
+---@param args basedir_args
+function M.basedir(args)
+    local is_directory = vim.fn.isdirectory(args.path) == 1
+    local dir_path = is_directory and args.path or string.sub(
+        args.path,
+        1,
+        string.len(args.path) - string.find(string.reverse(args.path), '/')
+    )
+
+    return dir_path
+end
+
+
 return M
