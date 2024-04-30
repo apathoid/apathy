@@ -1,6 +1,6 @@
 return {
     'nvim-neo-tree/neo-tree.nvim',
-    enabled = apth.utils.file_explorer.is_active({ ft = apth.enum.ft.file_explorer.neotree}),
+    enabled = apth.utils.file_explorer.is_active({ ft = apth.enum.ft.file_explorer.neotree }),
     branch = 'v3.x',
     dependencies = {
         'nvim-lua/plenary.nvim',
@@ -23,7 +23,7 @@ return {
         neotree.setup({
             close_if_last_window = apth.config.file_explorer.close_if_last,
             add_blank_line_at_top = true,
-            open_files_do_not_replace_types = { 'terminal', 'trouble', 'qf' },
+            open_files_do_not_replace_types = vim.tbl_values(apth.enum.ft.split_utility),
             sources = { 'filesystem', 'buffers', 'git_status', 'document_symbols' },
             enable_diagnostics = false,
             source_selector = {
@@ -71,18 +71,21 @@ return {
                         vim.fn.setreg('1', content)
                         vim.fn.setreg('+', content)
                     end
+                },
+                fuzzy_finder_mappings = {
+                    ['<Tab>'] = 'move_cursor_down',
+                    ['<S-Tab>'] = 'move_cursor_up'
                 }
             },
             filesystem = {
-                use_libuv_file_watcher = false,
+                use_libuv_file_watcher = true,
                 follow_current_file = {
                     enabled = true,
                     leave_dirs_open = true
                 },
-                -- hijack_netrw_behavior = 'open_default'
                 hijack_netrw_behavior = 'disabled'
             },
-            default_component_config = {
+            default_component_configs = {
                 git_status = {
                     symbols = {
                         added     = '',
@@ -90,7 +93,7 @@ return {
                         deleted   = '',
                         renamed   = '',
                         untracked = 'U',
-                        ignored   = '',
+                        ignored   = '◌',
                         unstaged  = '',
                         staged    = 'S',
                         conflict  = ''

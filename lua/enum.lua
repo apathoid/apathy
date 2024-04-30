@@ -5,7 +5,10 @@ return {
             neotree = 'neo-tree'
         },
         split_utility = {
-            toggleterm = 'toggleterm'
+            terminal = 'terminal',
+            qf = 'qf',
+            toggleterm = 'toggleterm',
+            trouble = 'trouble'
         },
         git_window = {
             gitcommit = 'gitcommit',

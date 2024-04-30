@@ -26,7 +26,7 @@ function M.open_explorer(args)
         local mode = _args.focus and 'focus' or 'show';
         local dir = 'dir='..(_args.path or './')
 
-        vim.cmd('Neotree reveal '..mode..' '..dir)
+        vim.cmd('Neotree '..mode..' '..dir)
     elseif ft == apth.enum.ft.file_explorer.nvimtree then
         local api = require('nvim-tree.api')
 

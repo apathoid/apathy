@@ -1,6 +1,6 @@
 return {
     'nvim-tree/nvim-tree.lua',
-    enabled = apth.utils.file_explorer.is_active({ ft = apth.enum.ft.file_explorer.nvimtree}),
+    enabled = apth.utils.file_explorer.is_active({ ft = apth.enum.ft.file_explorer.nvimtree }),
     dependencies = {
         'nvim-tree/nvim-web-devicons'
     },
