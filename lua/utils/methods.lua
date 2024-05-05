@@ -33,13 +33,13 @@ function M.get_theme()
 end
 
 
----@class basedir_args
----@field path string
+---@class base_dir_args
+---@field path string path the nearest directory should be determined of
 
 ---Get the directory from the path.
 ---If the path is pointing to a file, strip filename and get the containing dir
----@param args basedir_args
-function M.basedir(args)
+---@param args base_dir_args
+function M.get_base_dir(args)
     local is_directory = vim.fn.isdirectory(args.path) == 1
     local dir_path = is_directory and args.path or string.sub(
         args.path,
@@ -48,6 +48,38 @@ function M.basedir(args)
     )
 
     return dir_path
+end
+
+
+---@class is_path_absolute_args
+---@field path string path needed to check
+
+---Check wether path is absolute
+---@param args is_path_absolute_args
+function M.is_path_absolute(args)
+    return string.sub(args.path, 1, 1) == '/'
+end
+
+
+---@class cd_path_args
+---@field to string path cwd should be set to
+
+---Get a correct path for cd command based on the given arg
+---@param args cd_path_args
+function M.get_cd_path(args)
+    local cwd = vim.fn.getcwd()
+    local new_path = vim.fn.expand(args.to)
+    local new_path_is_absolute = M.is_path_absolute({ path = new_path })
+
+    local path = ''
+
+    if new_path_is_absolute then
+        path = new_path
+    else
+        path = cwd..'/'..new_path
+    end
+
+    return vim.fn.expand(path)
 end
 
 

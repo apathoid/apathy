@@ -9,9 +9,8 @@ M.commands = {
             callback = function(data)
                 local filetype = vim.bo[data.buf].ft
 
-                local cwd = vim.fn.getcwd()
                 local arg_path = vim.fn.argv()[1] or ''
-                local path = vim.fn.expand(cwd..'/'..arg_path)
+                local path = apth.utils.methods.get_cd_path({ to = arg_path })
                 local is_dir = vim.fn.isdirectory(path) == 1
 
                 -- if neovim is opened with an argument and that argument is a path pointing to a dir,
@@ -23,7 +22,7 @@ M.commands = {
                 end
 
                 -- if path to a file is given, strip filename from the path and get the containing dir
-                local dir_path = apth.utils.methods.basedir({ path = path })
+                local dir_path = apth.utils.methods.get_base_dir({ path = path })
 
                 -- change to the directory
                 vim.cmd.cd(dir_path)
