@@ -2,6 +2,21 @@ local M = {}
 
 
 function M.setup()
+    -- Set options
+    M.set_opts()
+
+    -- Set editor variables
+    M.set_editor_vars()
+
+    vim.cmd [[
+        filetype plugin on
+        set nocompatible
+        set t_Co=256
+    ]]
+end
+
+
+function M.set_opts()
     local options = {
         background = 'dark',
         completeopt = 'menu,menuone,noselect',
@@ -30,12 +45,18 @@ function M.setup()
     for k, v in pairs(options) do
         vim.opt[k] = v
     end
+end
 
-    vim.cmd [[
-        filetype plugin on
-        set nocompatible
-        set t_Co=256
-    ]]
+
+function M.set_editor_vars()
+    local vars = {
+        loaded_netrw = 0,
+        loaded_netrwPlugin = 0
+    }
+
+    for k, v in pairs(vars) do
+        vim.g[k] = v
+    end
 end
 
 

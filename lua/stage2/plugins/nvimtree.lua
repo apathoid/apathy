@@ -1,20 +1,26 @@
 return {
     'nvim-tree/nvim-tree.lua',
+    enabled = apth.utils.file_explorer.is_active({ ft = apth.enum.ft.file_explorer.nvimtree }),
     dependencies = {
         'nvim-tree/nvim-web-devicons'
     },
     lazy = false,
     keys = {
-        { '<C-n>', ':NvimTreeToggle<CR>', desc = 'Open NvimTree', silent = true }
+        {
+            '<C-n>',
+            ':lua apth.utils.file_explorer.toggle_explorer({ focus = false })<CR>',
+            desc = 'Toggle NvimTree',
+            silent = true
+        }
     },
     config = function()
         local nvim_tree = require('nvim-tree')
 
         nvim_tree.setup {
             auto_reload_on_write = true,
-            disable_netrw = true,
-            hijack_netrw = true,
-            open_on_tab = true,
+            disable_netrw = false,
+            hijack_netrw = false,
+            open_on_tab = false,
             hijack_cursor = true,
             update_cwd = false,
             update_focused_file = {

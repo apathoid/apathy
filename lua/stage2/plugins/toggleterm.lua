@@ -13,7 +13,8 @@ return {
             hide_numbers = true,
             direction = 'horizontal',
             close_on_exit = true,
-            start_in_insert = not (apth.config.file_explorer.filetype == 'neo-tree'),
+            start_in_insert = true,
+            autochdir = true,
             persist_mode = false,
             auto_scroll = true,
             on_open = function(terminal)

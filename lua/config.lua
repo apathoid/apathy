@@ -6,8 +6,8 @@ local M = {
         colorscheme = 'vscode-modern'
     },
     file_explorer = {
-        filetype = 'NvimTree',
         width = 60,
+        filetype = apth.enum.ft.file_explorer.neotree,
         position = 'left',
         close_if_last = false
     },

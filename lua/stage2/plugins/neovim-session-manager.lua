@@ -12,11 +12,13 @@ return {
             autosave_last_session = true,
             autosave_ignore_not_normal = true,
             autoload_mode = config.AutoloadMode.LastSession,
-            autosave_ignore_filetypes = {
-                'gitcommit',
-                'gitrebase',
-                'NvimTree'
-            }
+            autosave_ignore_filetypes = vim.tbl_values(vim.tbl_deep_extend(
+                'force',
+                {},
+                apth.enum.ft.git_window,
+                apth.enum.ft.file_explorer,
+                apth.enum.ft.split_utility
+            ))
         })
     end
 }

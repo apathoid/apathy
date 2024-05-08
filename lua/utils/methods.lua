@@ -33,4 +33,70 @@ function M.get_theme()
 end
 
 
+---@class base_dir_args
+---@field path string path the nearest directory should be determined of
+
+---Get the directory from the path.
+---If the path is pointing to a file, strip filename and get the containing dir
+---@param args base_dir_args
+function M.get_base_dir(args)
+    local dir_path = string.sub(
+        args.path,
+        1,
+        string.len(args.path) - string.find(string.reverse(args.path), '/')
+    )
+
+    return dir_path
+end
+
+
+---@class is_path_absolute_args
+---@field path string path needed to check
+
+---Check wether path is absolute
+---@param args is_path_absolute_args
+function M.is_path_absolute(args)
+    return string.sub(args.path, 1, 1) == '/'
+end
+
+
+---@class cd_path_args
+---@field to string path cwd should be set to
+
+---Get a correct path for cd command based on the given arg
+---@param args cd_path_args
+function M.get_cd_path(args)
+    local cwd = vim.fn.getcwd()
+    local new_path = vim.fn.expand(args.to)
+    local new_path_is_absolute = M.is_path_absolute({ path = new_path })
+
+    local path = ''
+
+    if new_path_is_absolute then
+        path = new_path
+    else
+        path = cwd..'/'..new_path
+    end
+
+    return vim.fn.expand(path)
+end
+
+
+---@class get_buf_opts_args
+---@field id string buffer id
+
+---Safely get buffer options
+---@param args get_buf_opts_args
+---@return _bo
+function M.get_buf_opts(args)
+    local _, ft = pcall(function ()
+        return vim.bo[args.id].ft
+    end)
+
+    return {
+        ft = ft or ''
+    }
+end
+
+
 return M
