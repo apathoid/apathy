@@ -83,4 +83,19 @@ function M.get_cd_path(args)
 end
 
 
+---@class get_buf_ft_args
+---@field id string buffer id
+
+---Get buffer id from the buffer options
+---@param args get_buf_ft_args
+---@return string -- filetype or empty string
+function M.get_buf_ft(args)
+    local _, ft = pcall(function ()
+        return vim.bo[args.id].ft
+    end)
+
+    return ft or ''
+end
+
+
 return M
