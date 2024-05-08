@@ -44,7 +44,7 @@ function M.close_explorer()
     if ft == apth.enum.ft.file_explorer.neotree then
         vim.cmd('Neotree close')
     elseif ft == apth.enum.ft.file_explorer.nvimtree then
-        require('nvim-tree.api').close()
+        require('nvim-tree.api').tree.close()
     end
 end
 

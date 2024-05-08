@@ -7,22 +7,23 @@ M.commands = {
         opts = {
             nested = true,
             callback = function(data)
-                local filetype = apth.utils.methods.get_buf_ft({ id = data.buf })
+                local filetype = apth.utils.methods.get_buf_opts({ id = data.buf })
+                local buf_name = vim.api.nvim_buf_get_name(0)
 
                 local arg_path = vim.fn.argv()[1] or ''
                 local path = apth.utils.methods.get_cd_path({ to = arg_path })
                 local is_dir = vim.fn.isdirectory(path) == 1
 
+                -- get path to the dir that contains opened file (or to the opened dir itself)
+                local dir_path = apth.utils.methods.get_base_dir({ path = path })
+
                 -- if neovim is opened with an argument and that argument is a path pointing to a dir,
                 -- it will open a new buffer named as the last segment of the path (the last directory's name).
                 -- if we close this buffer, [No Name] buffer will be only left so that any new buffer can replace it,
                 -- and there will be no need to close it manualy 
-                if is_dir then
+                if is_dir and buf_name == dir_path then
                     vim.cmd('bd')
                 end
-
-                -- if path to a file is given, strip filename from the path and get the containing dir
-                local dir_path = apth.utils.methods.get_base_dir({ path = path })
 
                 -- change to the directory
                 vim.cmd.cd(dir_path)

@@ -40,8 +40,7 @@ end
 ---If the path is pointing to a file, strip filename and get the containing dir
 ---@param args base_dir_args
 function M.get_base_dir(args)
-    local is_directory = vim.fn.isdirectory(args.path) == 1
-    local dir_path = is_directory and args.path or string.sub(
+    local dir_path = string.sub(
         args.path,
         1,
         string.len(args.path) - string.find(string.reverse(args.path), '/')
@@ -83,18 +82,20 @@ function M.get_cd_path(args)
 end
 
 
----@class get_buf_ft_args
+---@class get_buf_opts_args
 ---@field id string buffer id
 
----Get buffer id from the buffer options
----@param args get_buf_ft_args
----@return string -- filetype or empty string
-function M.get_buf_ft(args)
+---Safely get buffer options
+---@param args get_buf_opts_args
+---@return _bo
+function M.get_buf_opts(args)
     local _, ft = pcall(function ()
         return vim.bo[args.id].ft
     end)
 
-    return ft or ''
+    return {
+        ft = ft or ''
+    }
 end
 
 

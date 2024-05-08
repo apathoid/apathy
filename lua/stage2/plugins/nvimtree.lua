@@ -18,9 +18,9 @@ return {
 
         nvim_tree.setup {
             auto_reload_on_write = true,
-            disable_netrw = true,
-            hijack_netrw = true,
-            open_on_tab = true,
+            disable_netrw = false,
+            hijack_netrw = false,
+            open_on_tab = false,
             hijack_cursor = true,
             update_cwd = false,
             update_focused_file = {
