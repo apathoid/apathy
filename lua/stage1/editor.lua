@@ -50,6 +50,7 @@ end
 
 function M.set_editor_vars()
     local vars = {
+        loaded_netrw = 0,
         loaded_netrwPlugin = 0
     }
 
