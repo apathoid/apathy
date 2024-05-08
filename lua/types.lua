@@ -1,0 +1,2 @@
+---@class _bo
+---@field ft string buffer filetype
