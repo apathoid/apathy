@@ -70,7 +70,8 @@ return {
                         vim.fn.setreg('"', content)
                         vim.fn.setreg('1', content)
                         vim.fn.setreg('+', content)
-                    end
+                    end,
+                    ['<Tab>'] = 'toggle_node',
                 },
                 fuzzy_finder_mappings = {
                     ['<Tab>'] = 'move_cursor_down',
