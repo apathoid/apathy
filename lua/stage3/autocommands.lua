@@ -7,7 +7,7 @@ M.commands = {
         opts = {
             nested = true,
             callback = function(data)
-                local filetype = vim.bo[data.buf].ft
+                local filetype = apth.utils.methods.get_buf_ft({ id = data.buf })
 
                 local arg_path = vim.fn.argv()[1] or ''
                 local path = apth.utils.methods.get_cd_path({ to = arg_path })
