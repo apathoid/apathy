@@ -1,7 +1,7 @@
 return {
     'nvim-neo-tree/neo-tree.nvim',
     enabled = apth.utils.file_explorer.is_active({ ft = apth.enum.ft.file_explorer.neotree }),
-    branch = 'v3.x',
+    branch = 'main',
     dependencies = {
         'nvim-lua/plenary.nvim',
         'nvim-tree/nvim-web-devicons',
