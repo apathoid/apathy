@@ -34,7 +34,7 @@ return {
             },
             view = {
                 width = apth.config.file_explorer.width,
-                side = 'left',
+                side = apth.config.file_explorer.position,
                 signcolumn = 'yes'
             },
             renderer = {
