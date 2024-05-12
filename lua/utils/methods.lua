@@ -40,10 +40,17 @@ end
 ---If the path is pointing to a file, strip filename and get the containing dir
 ---@param args base_dir_args
 function M.get_base_dir(args)
+    local path = args.path
+    local is_dir = vim.fn.isdirectory(path) == 1
+
+    if is_dir and not (string.sub(path, string.len(path)) == '/') then
+        path = path..'/'
+    end
+
     local dir_path = string.sub(
-        args.path,
+        path,
         1,
-        string.len(args.path) - string.find(string.reverse(args.path), '/')
+        string.len(path) - string.find(string.reverse(path), '/')
     )
 
     return dir_path
